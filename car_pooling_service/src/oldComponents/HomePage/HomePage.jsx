@@ -1,4 +1,5 @@
-import { AppBar, Button, Toolbar } from "@mui/material";
+// import { AppBar, Button, Toolbar } from "@mui/material";
+import { Button } from "../../components/ui/button";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState, useRef } from "react";
 import "./HomePage.css";
@@ -118,29 +119,19 @@ const Homepage = () => {
               }}
             >
               <h2>For </h2>
-              <h1 style={{ color: "#843dc5" }}>Co-Rider</h1>
+              <h1 style={{ color: "#f9802d" }}>Co-Rider</h1>
             </div>
             <h3>
               hey this is logesh ,i am currently developing this component,as i
               dont have content i am typing this
             </h3>
-            <Button
-              variant="contained"
-              sx={{
-                width: "25%",
-                backgroundColor: "#843dc5",
-                marginTop: "1%",
-              }}
-              onClick={() => navigate("/createRide")}
-            >
-              Create Ride
-            </Button>
+            <Button onClick={() => navigate("/createRide")}>Create Ride</Button>
           </div>
         </div>
 
         <div
           style={{
-            background: "linear-gradient(223deg, white 11%, #79fef9 100%)",
+            background: "linear-gradient(223deg, white 11%, #f9802d 100%)",
             height: "70dvh",
             width: "50dvw",
             alignItems: "center",
@@ -164,23 +155,13 @@ const Homepage = () => {
               }}
             >
               <h2>For </h2>
-              <h1 style={{ color: "#843dc5" }}>Owner</h1>
+              <h1 style={{ color: "#f9802d" }}>Owner</h1>
             </div>
             <h3 style={{ color: "#333333" }}>
               hey this is logesh ,i am currently developing this component,as i
               dont have content i am typing this
             </h3>
-            <Button
-              variant="contained"
-              sx={{
-                width: "25%",
-                backgroundColor: "#843dc5",
-                marginTop: "1%",
-              }}
-              onClick={() => navigate("/bookRide")}
-            >
-              Book ride
-            </Button>
+            <Button onClick={() => navigate("/bookRide")}>Book ride</Button>
           </div>
         </div>
       </div>

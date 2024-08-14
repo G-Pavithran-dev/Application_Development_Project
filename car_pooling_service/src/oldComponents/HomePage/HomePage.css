@@ -359,7 +359,7 @@ p {
   height: 320px;
 
   color: #f9f9f9;
-  background: #000000;
+  background: hsl(10, 88%, 57%);
   border: solid black 2px;
   display: flex;
   align-items: center;

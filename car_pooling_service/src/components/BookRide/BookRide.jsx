@@ -1,11 +1,12 @@
 import {
-  Button,
+  // Button,
   Dialog,
   Divider,
   Paper,
   Typography,
   Checkbox,
 } from "@mui/material";
+import { Button } from "@/components/ui/button";
 import {
   DialogTitle,
   DialogContent,
@@ -64,8 +65,8 @@ const theme = createTheme({
   },
 });
 const BookRide = () => {
-  const passLongitude=localStorage.getItem("passLongitude");
-  const passLatitude=localStorage.getItem("passLati");
+  const passLongitude = localStorage.getItem("passLongitude");
+  const passLatitude = localStorage.getItem("passLati");
   // const passLocation = localStorage.getItem("passLocation");
   const dispatch = useDispatch();
   const selectedid = useSelector((state) => state.selectedIdReducer);
@@ -117,7 +118,7 @@ const BookRide = () => {
       endTime: "",
     },
   ]);
-  const op=()=>{
+  const op = () => {
     console.log("op");
     console.log("op");
     console.log("op");
@@ -135,29 +136,28 @@ const BookRide = () => {
     console.log("op");
     console.log("op");
     rideData.map((ride) => {
-      
       const distance = haversine(
         ride.leavingFromLatitude,
         ride.leavingFromLongitude,
         passLatitude,
         passLongitude
       );
-      console.log(ride.leavingFromLatitude,
+      console.log(
+        ride.leavingFromLatitude,
         ride.leavingFromLongitude,
-      passLatitude,
-      passLongitude);
+        passLatitude,
+        passLongitude
+      );
       console.log(`The distance is ${distance.toFixed(2)} km`);
-      
+
       return {
         ...ride,
         distance: distance.toFixed(2),
       };
-  });
-}
+    });
+  };
   useEffect(() => {
-    
-   
-  op();
+    op();
   }, [rideData]);
   useEffect(() => {
     f();
@@ -205,12 +205,12 @@ const BookRide = () => {
         : [...prev, value]
     );
   };
-  useEffect(()=>{
+  useEffect(() => {
     localStorage.setItem("passLati", passLatitud);
     localStorage.setItem("passLongitude", passLongitud);
     localStorage.setItem("passengerLocation", passengerLocation);
     op();
-  },[passLatitud,passLongitud])
+  }, [passLatitud, passLongitud]);
 
   const handleGoingTocheckbox = (event) => {
     const value = event.target.value;
@@ -248,7 +248,6 @@ const BookRide = () => {
       f();
       nav("/dummy");
     }
-    
   };
   const [AllrideData, setAllRideData] = useState([
     {
@@ -325,7 +324,7 @@ const BookRide = () => {
 
     return distance;
   }
- 
+
   useEffect(() => {
     console.log("the store selected id is ", selectedid.idSelected);
     try {
@@ -394,11 +393,16 @@ const BookRide = () => {
                     return (
                       <div>
                         <Checkbox
-                          value={data.locationFirstName}
-                          checked={leavingFromFilters.includes(data.locationFirstName)}
+                          value={data.leaving}
+                          checked={leavingFromFilters.includes(data.leaving)}
                           onChange={handleLeavingFromcheckbox}
                         ></Checkbox>
-                        <label>{data.locationFirstName}</label>
+                        <label>
+                          {data.locationFirstName ===
+                          "Sri Krishna College of Engineering and Technology"
+                            ? "SKCET"
+                            : data.locationFirstName}
+                        </label>
                       </div>
                     );
                   })}
@@ -418,11 +422,16 @@ const BookRide = () => {
                     return (
                       <div>
                         <Checkbox
-                          value={data.goingLocationFirstName}
-                          checked={goingToFilters.includes(data.goingLocationFirstName)}
+                          value={data.going}
+                          checked={goingToFilters.includes(data.going)}
                           onChange={handleGoingTocheckbox}
                         ></Checkbox>
-                        <label>{data.goingLocationFirstName}</label>
+                        <label>
+                          {data.goingLocationFirstName ===
+                          "Sri Krishna College of Engineering and Technology"
+                            ? "SKCET"
+                            : data.goingLocationFirstName}
+                        </label>
                       </div>
                     );
                   })}
@@ -481,7 +490,7 @@ const BookRide = () => {
                         setPassengerLocation(newValue.label);
                         setPassLatitude(newValue.value.lat);
                         setPassLongitude(newValue.value.lon);
-                      } 
+                      }
                     }}
                   />
                 </ThemeProvider>
@@ -550,7 +559,12 @@ const BookRide = () => {
                   <Typography variant="h5">
                     {selectedRideData.locationFirstName}
                   </Typography>
-                  <Typography variant="h5">{selectedRideData.goingLocationFirstName==="Sri Krishna College of Engineering and Technology"?"SKCET":selectedRideData.goingLocationFirstName}</Typography>
+                  <Typography variant="h5">
+                    {selectedRideData.goingLocationFirstName ===
+                    "Sri Krishna College of Engineering and Technology"
+                      ? "SKCET"
+                      : selectedRideData.goingLocationFirstName}
+                  </Typography>
                 </div>
                 <div
                   style={{
@@ -690,8 +704,8 @@ const BookRide = () => {
                 }}
               >
                 <Button
-                  variant="contained"
-                  style={{ backgroundColor: "black" }}
+                  // variant="contained"
+
                   onClick={() => {
                     handleBookRide();
                   }}
@@ -701,10 +715,11 @@ const BookRide = () => {
                 <Link to="/map">
                   <Button
                     variant="contained"
-                    style={{ backgroundColor: "black", marginLeft: "10px" }}
-                    // onClick={() => {
-                    //   handleBookRide();
-                    // }}
+                    style={{
+                      backgroundColor: "black",
+                      marginLeft: "10px",
+                      color: "white",
+                    }}
                   >
                     More Details
                   </Button>

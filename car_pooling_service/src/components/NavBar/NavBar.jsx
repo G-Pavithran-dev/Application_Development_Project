@@ -9,8 +9,19 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { Moon, Sun } from "lucide-react";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useTheme } from "../ThemeProvider";
 
 const Navbar = () => {
+  const { setTheme } = useTheme();
+
   return (
     <AppBar position="sticky" elevation={1}>
       <Toolbar
@@ -75,6 +86,7 @@ const Navbar = () => {
                 Get Started
               </Button>
             </HoverCardTrigger>
+
             <HoverCardContent className="w-40 bg-white p-4 rounded-lg shadow-lg">
               <Link
                 to="/passangerSignin"
@@ -98,16 +110,7 @@ const Navbar = () => {
               </Link>
             </HoverCardContent>
           </HoverCard>
-          {/* <Link to="/signup" style={{ textDecoration: "none", color: "black" }}>
-            <Typography sx={{ fontWeight: "550" }}>SignUp</Typography>
-          </Link>
-          <Link
-            to="/signin"
-            sx={{ display: "flex" }}
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            <Typography sx={{ fontWeight: "550" }}>SignIn</Typography>
-          </Link> */}
+          {/* <- */}
         </div>
       </Toolbar>
     </AppBar>

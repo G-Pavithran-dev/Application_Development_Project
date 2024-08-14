@@ -85,39 +85,22 @@ export default function Map() {
   //     console.log(latitude + " " + longitude);
   //   }
   // }, [mapData]);
-  useEffect(() => {
-    axios
-      .get(
-        `http://localhost:8080/app/bookride/selectedValue/${rideId.idSelected}`
-      )
-      .then((response) => {
-        {
-          console.log("Rider details ", response.data);
-          setmapData(response.data);
-          setLatitude(response.data.leavingFromLatitude);
-          setLongitude(response.data.leavingFromLongitude);
-          setOpen(true);
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-    console.log("The ride details", mapData);
-  }, []);
-
-  useEffect(() => {
-    console.log("the profile", profile);
-  }, [profile]);
-  useEffect(() => {
-    console.log("the mapData", rideId);
-  }, [rideId]);
-
-  console.log("check", mapData);
-  console.log("open", open);
-
-  //*calculate distance between passanger and driver
-  function haversine(lat1, lon1, lat2, lon2) {
+  const passLongitude=localStorage.getItem("passLongitude");
+  const passLatitude=localStorage.getItem("passLati");
+  const passLocation=localStorage.getItem("passLocation");
+  const [distance,setDistance]=useState(0);
+  const  haversine=(lat1, lon1, lat2, lon2)=> {
     // Convert latitude and longitude from degrees to radians
+    console.log("hi");
+    console.log("hi");
+    console.log("hi");
+    console.log("hi");
+    console.log("hi");
+    console.log("hi");
+    console.log("hi");
+    console.log("hi");
+    console.log(lat1,lat2,lon1,lon2);
+
     const toRadians = (degree) => degree * (Math.PI / 180);
 
     lat1 = toRadians(lat1);
@@ -129,8 +112,8 @@ export default function Map() {
     const dLat = lat2 - lat1;
     const dLon = lon2 - lon1;
     const a =
-      Math.sin(dLat / 2) * 2 +
-      Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * 2;
+      Math.sin(dLat / 2) ** 2 +
+      Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2;
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
     // Earth's radius in kilometers
@@ -139,6 +122,50 @@ export default function Map() {
 
     return distance;
   }
+ 
+  useEffect(() => {
+
+    axios
+      .get(
+        `http://localhost:8080/app/bookride/selectedValue/${rideId.idSelected}`
+      )
+      .then((response) => {
+        {
+          console.log("Rider details ", response.data);
+          setmapData(response.data);
+          setLatitude(response.data.leavingFromLatitude);
+          setLongitude(response.data.leavingFromLongitude);
+          console.log("haver sine called",response.data.leavingFromLatitude,response.data.leavingFromLongitude, passLatitude, passLongitude)  ;
+          const dis=haversine(response.data.leavingFromLatitude,response.data.leavingFromLongitude,passLatitude, passLongitude);
+          console.log("distance is " ,dis);
+          setDistance(dis);
+          setOpen(true);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    console.log("The ride details", mapData);
+    
+  }, []);
+  useEffect(()=>{
+    // console.log("haver sine called",response.data.leavingFromLatitude,response.data.leavingFromLongitude, passLatitude, passLongitude)  ;
+          const dis=haversine(latitude,longitude,passLatitude, passLongitude);
+          console.log("distance is " ,dis);
+  },[latitude,longitude])
+  useEffect(() => {
+    console.log("the profile", profile);
+  }, [profile]);
+  useEffect(() => {
+    console.log("the mapData", rideId);
+    
+  }, [rideId]);
+
+  console.log("check", mapData);
+  console.log("open", open);
+
+  //*calculate distance between passanger and driver
+  
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
@@ -173,18 +200,18 @@ export default function Map() {
                 </CardContent>
               </Card>
               <Card x-chunk="dashboard-05-chunk-2">
-                <CardHeader className="pb-2">
-                  <CardDescription>Proximity to Driver</CardDescription>
-                  <CardTitle className="text-xs"></CardTitle>
+                <CardHeader className="pb-2 ">
+                  <CardDescription>Distance away from you</CardDescription>
+                  <CardTitle className="text-xs">
+                    
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-xs text-muted-foreground">
-                    +10% from last month
+                  <div className="text-[4dvh] text-black text-center  flex align-middle justify-center items-center">
+                    {distance.toFixed(2)} km
                   </div>
                 </CardContent>
-                <CardFooter>
-                  <Progress value={12} aria-label="12% increase" />
-                </CardFooter>
+               
               </Card>
             </div>
             <Tabs defaultValue="week">

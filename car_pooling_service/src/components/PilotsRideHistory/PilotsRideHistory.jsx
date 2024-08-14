@@ -329,8 +329,8 @@ const PilotsRideHistory = () => {
 
                         }}
                       >
-                        <Typography variant="h5"> {ride.leaving}</Typography>
-                        <Typography variant="h5"> {ride.going}</Typography>
+                         <Typography variant="h5">{ride.locationFirstName==="Sri Krishna College of Engineering and Technology"?"SKCET":ride.locationFirstName} </Typography>
+                         <Typography variant="h5"> {ride.goingLocationFirstName==="Sri Krishna College of Engineering and Technology"?"SKCET":ride.goingLocationFirstName}</Typography>
                       </div>
                       <div
                         style={{
@@ -495,8 +495,8 @@ const PilotsRideHistory = () => {
 
                         }}
                       >
-                        <Typography variant="h5"> {ride.leaving}</Typography>
-                        <Typography variant="h5"> {ride.going}</Typography>
+                        <Typography variant="h5">{ride.locationFirstName==="Sri Krishna College of Engineering and Technology"?"SKCET":ride.locationFirstName} </Typography>
+                        <Typography variant="h5"> {ride.goingLocationFirstName==="Sri Krishna College of Engineering and Technology"?"SKCET":ride.goingLocationFirstName}</Typography>
                       </div>
                       <div
                         style={{

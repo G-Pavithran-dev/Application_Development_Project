@@ -130,17 +130,15 @@ const PublishedRideHistory = () => {
                           paddingLeft: "7%",
                         }}
                       >
-                        <Typography variant="h5" sx={{ fontSize: "0.8rem" }}>
-                          {ride.bookRide.leaving}
-                        </Typography>
+                                                <Typography variant="h5" sx={{ fontSize: "0.8rem" }}>{ride.bookRide.locationFirstName==="Sri Krishna College of Engineering and Technology"?"SKCET":ride.bookRide.locationFirstName} </Typography>
+
                         <img
                           src={route}
                           style={{ height: "48%", alignContent: "center" }}
                           alt="Route"
                         />
-                        <Typography variant="h5" sx={{ fontSize: "0.8rem" }}>
-                          {ride.bookRide.going}
-                        </Typography>
+                                                <Typography variant="h5" sx={{ fontSize: "0.8rem" }}> {ride.bookRide.goingLocationFirstName==="Sri Krishna College of Engineering and Technology"?"SKCET":ride.bookRide.goingLocationFirstName}</Typography>
+
                       </div>
 
                       <div
@@ -274,17 +272,15 @@ const PublishedRideHistory = () => {
                           paddingLeft: "7%",
                         }}
                       >
-                        <Typography variant="h5" sx={{ fontSize: "0.8rem" }}>
-                          {ride.bookRide.leaving}
-                        </Typography>
+                                                <Typography variant="h5" sx={{ fontSize: "0.8rem" }}>{ride.bookRide.locationFirstName==="Sri Krishna College of Engineering and Technology"?"SKCET":ride.bookRide.locationFirstName} </Typography>
+
                         <img
                           src={route}
                           style={{ height: "48%", alignContent: "center" }}
                           alt="Route"
                         />
-                        <Typography variant="h5" sx={{ fontSize: "0.8rem" }}>
-                          {ride.bookRide.going}
-                        </Typography>
+                                                <Typography variant="h5" sx={{ fontSize: "0.8rem" }}> {ride.bookRide.goingLocationFirstName==="Sri Krishna College of Engineering and Technology"?"SKCET":ride.bookRide.goingLocationFirstName}</Typography>
+
                       </div>
 
                       <div
@@ -435,8 +431,8 @@ const PublishedRideHistory = () => {
                           paddingLeft: "7%",
                         }}
                       >
-                        <Typography variant="h5" sx={{ fontSize: "0.8rem" }}>
-                          {ride.bookRide.leaving}
+                        <Typography variant="h5" >
+                        <Typography variant="h5" sx={{ fontSize: "0.8rem" }}>{ride.bookRide.locationFirstName==="Sri Krishna College of Engineering and Technology"?"SKCET":ride.bookRide.locationFirstName} </Typography>
                         </Typography>
                         <img
                           src={route}
@@ -444,7 +440,8 @@ const PublishedRideHistory = () => {
                           alt="Route"
                         />
                         <Typography variant="h5" sx={{ fontSize: "0.8rem" }}>
-                          {ride.bookRide.going}
+                        <Typography variant="h5" sx={{ fontSize: "0.8rem" }}> {ride.bookRide.goingLocationFirstName==="Sri Krishna College of Engineering and Technology"?"SKCET":ride.bookRide.goingLocationFirstName}</Typography>
+                          
                         </Typography>
                       </div>
 
