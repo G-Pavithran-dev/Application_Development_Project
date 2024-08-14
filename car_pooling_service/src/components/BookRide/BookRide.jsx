@@ -702,9 +702,9 @@ const BookRide = () => {
                   <Button
                     variant="contained"
                     style={{ backgroundColor: "black", marginLeft: "10px" }}
-                    onClick={() => {
-                      handleBookRide();
-                    }}
+                    // onClick={() => {
+                    //   handleBookRide();
+                    // }}
                   >
                     More Details
                   </Button>

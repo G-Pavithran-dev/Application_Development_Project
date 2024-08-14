@@ -25,17 +25,19 @@ import RiderSignUp from "./components/RiderAuthorization/RiderSignUp";
 import Footer from "./components/Footer/Footer.jsx";
 import Map from "./components/Map/Map.jsx";
 import MyModal from "./components/DialogueBox/Dialogue.jsx";
+import RideAssistant from "./components/CHAT_BOT/EcoRideAsst.jsx";
 const App = () => {
   return (
     <Router>
       <Navbar />
+      <RideAssistant />
       <AnimatedRoutes />
       <Routes>
         <Route path="/passangerSignUp" element={<PassangerSignUp />} />
         <Route path="/passangerSignIn" element={<PassangerSignIn />} />
       </Routes>
     </Router>
-  );
+  )
 };
 
 const AnimatedRoutes = () => {

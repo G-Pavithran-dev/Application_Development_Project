@@ -15,33 +15,32 @@ const Navbar = () => {
     <AppBar position="sticky" elevation={1}>
       <Toolbar
         sx={{
-          backgroundColor: "white",
-          color: "black",
-          display: "flex",
-          justifyContent: "space-around",
-          lineHeight: "0.5rem",
+          backgroundColor: 'white',
+          color: 'black',
+          display: 'flex',
+          justifyContent: 'space-around',
+          lineHeight: '1rem',
         }}
       >
         <Link to="/" className="logo">
-          <img
-            src="/images/eco-ride.png"
-            style={{ width: "6.5rem", height: "2rem" }}
-          />
+          <p className="font-serif text-2xl font-bold text-gray-800 uppercase tracking-wide m-0 p-2">
+            Eco Ride
+          </p>
         </Link>
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-around",
-            width: "20%",
-            marginLeft: "8%",
-            marginRight: "8%",
+            display: 'flex',
+            justifyContent: 'space-around',
+            width: '20%',
+            marginLeft: '8%',
+            marginRight: '8%',
           }}
         ></div>
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-around",
-            width: "15%",
+            display: 'flex',
+            justifyContent: 'space-around',
+            width: '15%',
           }}
         >
           <HoverCard>
@@ -56,7 +55,7 @@ const Navbar = () => {
                 className="block mb-2 hover:bg-blue-100 p-2  rounded"
               >
                 <Typography
-                  sx={{ fontWeight: "550" }}
+                  sx={{ fontWeight: '550' }}
                   className="text-primary mb-4"
                 >
                   As Pilot
@@ -64,7 +63,7 @@ const Navbar = () => {
               </Link>
               <div className="border-t border-primary my-2"></div>
               <Link to="/dummy" className="block hover:bg-blue-100 p-2 rounded">
-                <Typography sx={{ fontWeight: "550" }} className="text-primary">
+                <Typography sx={{ fontWeight: '550' }} className="text-primary">
                   As Passenger
                 </Typography>
               </Link>
@@ -82,7 +81,7 @@ const Navbar = () => {
                 className="block mb-2 hover:bg-blue-100 p-2  rounded"
               >
                 <Typography
-                  sx={{ fontWeight: "550" }}
+                  sx={{ fontWeight: '550' }}
                   className="text-primary mb-4"
                 >
                   Login
@@ -93,7 +92,7 @@ const Navbar = () => {
                 to="/passangerSignup"
                 className="block hover:bg-blue-100 p-2 rounded"
               >
-                <Typography sx={{ fontWeight: "550" }} className="text-primary">
+                <Typography sx={{ fontWeight: '550' }} className="text-primary">
                   SignUp
                 </Typography>
               </Link>
@@ -112,7 +111,7 @@ const Navbar = () => {
         </div>
       </Toolbar>
     </AppBar>
-  );
+  )
 };
 
 export default Navbar;
